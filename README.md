@@ -11,8 +11,8 @@ A live demo of the app can be found [here](https://hypersequent.github.io/bistro
 To get started with this demo app, clone the repository and install the necessary dependencies.
 
 ```bash
-git clone https://github.com/Hypersequent/food-delivery-demo.git
-cd food-delivery-demo
+git clone https://github.com/Hypersequent/bistro.git
+cd bistro
 npm install
 ```
 
