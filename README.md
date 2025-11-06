@@ -1,6 +1,6 @@
 # Bistro Delivery App for QA Sphere
 
-This repository contains a Food Delivery demo app, a project forked from [wowthemesnet/template-fooddelivery-bootstrap-html](https://github.com/wowthemesnet/template-fooddelivery-bootstrap-html) and rewritten in SvelteKit for QA Sphere.
+A food delivery demo application built with SvelteKit for QA Sphere testing purposes.
 
 ## Demo
 
@@ -29,6 +29,10 @@ This will start the SvelteKit development server, making the app accessible via 
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+
+## Credits
+
+This project is based on [wowthemesnet/template-fooddelivery-bootstrap-html](https://github.com/wowthemesnet/template-fooddelivery-bootstrap-html) and was rewritten in SvelteKit.
 
 ## License
 
