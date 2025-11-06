@@ -40,20 +40,30 @@
 			backdrop.classList.remove('show')
 			modal.classList.remove('show')
 			setTimeout(() => {
-				document.body.contains(backdrop) && document.body.removeChild(backdrop)
+				if (document.body.contains(backdrop)) {
+					document.body.removeChild(backdrop)
+				}
 				modal.style.display = 'none'
 			}, 200)
 		}
 		backdrop.addEventListener('click', hideModal)
 
-		isShown ? showModal() : hideModal()
+		if (isShown) {
+			showModal()
+		} else {
+			hideModal()
+		}
 
 		return {
 			destroy() {
 				backdrop.remove()
 			},
 			update(newShow: boolean) {
-				newShow ? showModal() : hideModal()
+				if (newShow) {
+					showModal()
+				} else {
+					hideModal()
+				}
 				show = !!newShow
 			},
 		}

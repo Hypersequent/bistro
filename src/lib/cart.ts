@@ -11,7 +11,9 @@ function createCart() {
 	if (browser && localStorage.getItem('cart')) {
 		try {
 			initialCart = JSON.parse(localStorage.getItem('cart') || '[]')
-			Array.isArray(initialCart) || (initialCart = saveToLocalStorage([]))
+			if (!Array.isArray(initialCart)) {
+				initialCart = saveToLocalStorage([])
+			}
 		} finally {
 			//empty
 		}
@@ -64,7 +66,7 @@ function createCart() {
 			})
 		},
 		set() {
-			0
+			// No-op setter for store compatibility
 		},
 		add: addItem,
 		update: updateItem,
