@@ -57,7 +57,7 @@
 	</div>
 
 	<!-- Start Pizza Menu -->
-	<div class="menu" id="pizzaMenu" data-aos="fade-up">
+	<div class="menu" id="pizzaMenu">
 		{#each items.pizzas as pizza}
 			<div class="item row align-items-center">
 				<div class="col-sm-3 pr-5">
@@ -83,7 +83,7 @@
 	<!-- End Pizza Menu -->
 
 	<!-- Start Drinks Menu -->
-	<div class="menu" id="drinksMenu" data-aos="fade-up">
+	<div class="menu" id="drinksMenu">
 		{#each items.drinks as drink}
 			<div class="item row align-items-center">
 				<div class="col">
@@ -106,7 +106,7 @@
 	<!-- End Drinks Menu -->
 
 	<!-- Start Desserts Menu -->
-	<div class="menu" id="dessertsMenu" data-aos="fade-up">
+	<div class="menu" id="dessertsMenu">
 		{#each items.desserts as dessert}
 			<div class="item row align-items-center">
 				<div class="col">

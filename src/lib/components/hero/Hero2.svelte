@@ -9,15 +9,8 @@
 	"
 >
 	<div class="container-fluid text-center">
-		<h1
-			class="display-2 text-white"
-			data-aos="fade-up"
-			data-aos-duration="1000"
-			data-aos-offset="0"
-		>
-			Bistro Delivery
-		</h1>
-		<p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+		<h1 class="display-2 text-white">Bistro Delivery</h1>
+		<p class="lead text-white">
 			Elegance of French&amp;Italian Cuisine Delivered Directly to Your Doorstep!
 		</p>
 	</div>
