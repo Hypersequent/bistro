@@ -40,6 +40,9 @@
 		"vitest": "^4.0.7"
 	},
 	"type": "module",
+	"overrides": {
+		"cookie": "^0.7.2"
+	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
 			"prettier --write",
