@@ -52,3 +52,27 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.featured-img img {
+		max-width: 50%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		border-radius: 20px;
+		border: 8px solid #f8f9fa;
+		box-shadow:
+			0 10px 30px rgba(0, 0, 0, 0.15),
+			0 0 0 1px rgba(0, 0, 0, 0.05);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+
+	.featured-img img:hover {
+		transform: translateY(-5px);
+		box-shadow:
+			0 15px 40px rgba(0, 0, 0, 0.2),
+			0 0 0 1px rgba(0, 0, 0, 0.05);
+	}
+</style>
