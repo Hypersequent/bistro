@@ -27,10 +27,9 @@
 
 					<p>
 						<strong>Bistro Delivery</strong> is not just a culinary journey; it's a showcase of what
-						<a href="https://qasphere.com" target="_blank">QA Sphere</a> can do for web applications
-						just like this one. We've cooked up this example to demonstrate how our Test Management System
-						(TMS) can handle the heat of the digital kitchen, ensuring every order is delivered with
-						perfection.
+						<a href="https://qasphere.com" target="_blank">QA Sphere</a> can do for web applications just
+						like this one. We've cooked up this example to demonstrate how our Test Management System
+						(TMS) can handle the heat of the digital kitchen, ensuring every order is delivered with perfection.
 					</p>
 
 					<p>
