@@ -31,7 +31,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Priority** is one of `Critical`, `High`, `Medium`, `Low`.
 - **Acceptance criteria** are the testable conditions a requirement must satisfy.
 - **Covered by** lists the test cases (`BD-###`) that verify the requirement. `BD-001…BD-045` are
-  manual; `BD-046…BD-060` are automated.
+  manual; `BD-057…BD-071` are automated.
 - Test cases link back here by URL; the canonical hosted location used in those links is
   `https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md`.
 
@@ -51,7 +51,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - "Today's Menu" targets the `#menu` section of the home page.
   - "About us" navigates to `/bistro/about`.
   - The navbar (and footer) are present on Home, Menu, About, and Checkout.
-- **Covered by:** BD-001, BD-006, BD-046
+- **Covered by:** BD-001, BD-006, BD-057
 
 #### LOGO: Logo returns home
 
@@ -141,7 +141,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - The selected tab gains `button--is-active`; others lose it.
   - The matching panel gains `menu--is-visible`; others lose it.
   - Clicking a tab does not navigate (default prevented).
-- **Covered by:** BD-013, BD-047
+- **Covered by:** BD-013, BD-058
 
 #### CARD: Menu cards show item details
 
@@ -152,7 +152,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - Title, price, and description render for every item.
   - Prices and titles match the menu data per category.
   - Every card has a functional Add-to-cart button.
-- **Covered by:** BD-014, BD-048
+- **Covered by:** BD-014, BD-059
 
 #### IMAGE: Pizzas show images only
 
@@ -187,7 +187,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - First add creates a line with quantity 1.
   - Subsequent adds of the same item increment that line's quantity.
   - Items from any category can be added.
-- **Covered by:** BD-017, BD-050
+- **Covered by:** BD-017, BD-061
 
 #### BADGE: Cart badge shows total quantity
 
@@ -197,7 +197,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - Badge equals the sum of all line quantities (not the number of distinct items).
   - Badge updates immediately when items are added/removed or quantities change.
-- **Covered by:** BD-018, BD-049
+- **Covered by:** BD-018, BD-060
 
 #### TOTAL: Totals calculate correctly
 
@@ -208,7 +208,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - Line total = price × quantity for each item.
   - Cart total (`[data-testid="cartTotal"]`) = sum of all line totals.
   - No decimals/rounding occur (integer prices and quantities).
-- **Covered by:** BD-019, BD-051
+- **Covered by:** BD-019, BD-062
 
 #### MODAL: Cart modal opens and closes
 
@@ -240,7 +240,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - Entering a value > 0 updates the quantity, line total, and cart total.
   - The badge reflects the new total quantity.
-- **Covered by:** BD-022, BD-052
+- **Covered by:** BD-022, BD-063
 
 #### ZERO: Invalid quantities remove items
 
@@ -251,7 +251,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - Quantity `0` removes the line.
   - Empty input removes the line (parsed as 0).
   - Non-numeric input removes the line (parsed as 0).
-- **Covered by:** BD-023, BD-024, BD-053
+- **Covered by:** BD-023, BD-024, BD-064
 
 #### NEG: Negative quantities are ignored
 
@@ -269,7 +269,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - Clicking X removes only that line.
   - The cart total and badge update accordingly.
-- **Covered by:** BD-026, BD-054
+- **Covered by:** BD-026, BD-065
 
 ### 3.6 Checkout
 
@@ -281,7 +281,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - Direct navigation to `/bistro/checkout` with an empty cart redirects to the home page.
   - Checkout is reached via the cart modal's Checkout button when items are present.
-- **Covered by:** BD-027, BD-055
+- **Covered by:** BD-027, BD-066
 
 #### SUMMARY: Checkout summary matches cart
 
@@ -291,7 +291,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - Columns: Image, Title, Count, Total Price; one row per cart item plus a Total row.
   - Each row's count and total match the cart; the Total matches the cart total.
-- **Covered by:** BD-028, BD-029, BD-056
+- **Covered by:** BD-028, BD-029, BD-067
 
 #### FORM: Checkout requires name and address
 
@@ -326,7 +326,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - Heading reads exactly **"Your order placed successfully!"**.
   - The message echoes the entered name, address, and selected payment method.
   - Works for both Cash and Card payment methods.
-- **Covered by:** BD-032, BD-033, BD-034, BD-057, BD-058
+- **Covered by:** BD-032, BD-033, BD-034, BD-068, BD-069
 
 #### NOCLEAR: Order does not clear cart
 
@@ -336,7 +336,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 - **Acceptance criteria:**
   - The order summary remains visible above the confirmation.
   - Re-opening the cart shows the same items; `localStorage.cart` is unchanged.
-- **Covered by:** BD-036, BD-059
+- **Covered by:** BD-036, BD-070
 
 ### 3.8 About & Content
 
@@ -362,7 +362,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
   - Cart survives a full page reload.
   - Cart survives navigation between Home, Menu, and About.
   - Cart state is stored as a JSON array of `{ id, quantity }` under `localStorage.cart`.
-- **Covered by:** BD-042, BD-043, BD-044, BD-060
+- **Covered by:** BD-042, BD-043, BD-044, BD-071
 
 #### HYDRATE: Malformed cart data resets safely
 
@@ -380,7 +380,7 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 
 | Requirement | Priority | Covered by                             |
 | ----------- | -------- | -------------------------------------- |
-| NAV         | High     | BD-001, BD-006, BD-046                 |
+| NAV         | High     | BD-001, BD-006, BD-057                 |
 | LOGO        | Medium   | BD-002                                 |
 | MENULINK    | Medium   | BD-003                                 |
 | FOOTER      | Low      | BD-004                                 |
@@ -388,27 +388,27 @@ as requirements too, but is exercised mainly through manual/visual test cases.
 | RESPONSIVE  | High     | BD-007, BD-008, BD-009                 |
 | MOBILE      | Medium   | BD-010, BD-011                         |
 | MENU        | High     | BD-012                                 |
-| TABS        | High     | BD-013, BD-047                         |
-| CARD        | High     | BD-014, BD-048                         |
+| TABS        | High     | BD-013, BD-058                         |
+| CARD        | High     | BD-014, BD-059                         |
 | IMAGE       | Medium   | BD-015                                 |
 | TABRESET    | Low      | BD-016                                 |
-| ADD         | Critical | BD-017, BD-050                         |
-| BADGE       | High     | BD-018, BD-049                         |
-| TOTAL       | Critical | BD-019, BD-051                         |
+| ADD         | Critical | BD-017, BD-061                         |
+| BADGE       | High     | BD-018, BD-060                         |
+| TOTAL       | Critical | BD-019, BD-062                         |
 | MODAL       | Medium   | BD-020                                 |
 | EMPTY       | Medium   | BD-021                                 |
-| QTY         | High     | BD-022, BD-052                         |
-| ZERO        | High     | BD-023, BD-024, BD-053                 |
+| QTY         | High     | BD-022, BD-063                         |
+| ZERO        | High     | BD-023, BD-024, BD-064                 |
 | NEG         | Medium   | BD-025                                 |
-| REMOVE      | High     | BD-026, BD-054                         |
-| GUARD       | High     | BD-027, BD-055                         |
-| SUMMARY     | High     | BD-028, BD-029, BD-056                 |
+| REMOVE      | High     | BD-026, BD-065                         |
+| GUARD       | High     | BD-027, BD-066                         |
+| SUMMARY     | High     | BD-028, BD-029, BD-067                 |
 | FORM        | High     | BD-030, BD-035                         |
 | PAYMENT     | Medium   | BD-031                                 |
-| ORDER       | Critical | BD-032, BD-033, BD-034, BD-057, BD-058 |
-| NOCLEAR     | Medium   | BD-036, BD-059                         |
+| ORDER       | Critical | BD-032, BD-033, BD-034, BD-068, BD-069 |
+| NOCLEAR     | Medium   | BD-036, BD-070                         |
 | ABOUT       | Low      | BD-037, BD-038, BD-039, BD-040, BD-041 |
-| PERSIST     | High     | BD-042, BD-043, BD-044, BD-060         |
+| PERSIST     | High     | BD-042, BD-043, BD-044, BD-071         |
 | HYDRATE     | Low      | BD-045                                 |
 
 ## 5. Revision history
