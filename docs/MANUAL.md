@@ -14,19 +14,19 @@
 This file plans the **45 manual source test cases** (`BD-001…BD-045`) for the QA Sphere project,
 including **4 template test cases** that generate filled/parameterized cases, alongside
 the **shared preconditions** and **shared steps** they reuse. The 15 automated cases
-(`BD-046…BD-060`) live in [`AUTOMATED.md`](./AUTOMATED.md) but share the same folders, tags, and
+(`BD-057…BD-071`) live in [`AUTOMATED.md`](./AUTOMATED.md) but share the same folders, tags, and
 shared entities.
 
 For convenience, this file **also documents manual reproduction steps for those 15 automated cases**,
 filed in their matching folders (§6), so a QA can re-run a failing automated test by hand. Those
-entries keep their `BD-046…BD-060` IDs, are marked `Automation = Automated`, and point to their
+entries keep their `BD-057…BD-071` IDs, are marked `Automation = Automated`, and point to their
 Playwright spec; their authoritative definition still lives in [`AUTOMATED.md`](./AUTOMATED.md).
 
 ---
 
 ## 1. Conventions
 
-- **Test case IDs** — `BD-001 … BD-045` are the manual cases. `BD-046 … BD-060` are the automated
+- **Test case IDs** — `BD-001 … BD-045` are the manual cases. `BD-057 … BD-071` are the automated
   cases ([`AUTOMATED.md`](./AUTOMATED.md)); their **manual reproduction steps** also appear in §6 so a
   failing automated test can be checked by hand. QA Sphere assigns the sequence; the IDs here are the
   human-readable `PROJECT-SEQ` form.
@@ -74,15 +74,15 @@ Every image below uses this shape so it can be (re)captured consistently:
 ## 3. Folder hierarchy
 
 ```
-Navigation & Layout/                 (BD-001…006, BD-046)
+Navigation & Layout/                 (BD-001…006, BD-057)
    └─ Responsive & Mobile Nav/       (BD-007…011)            ← nested
-Menu/                                (BD-012…016, BD-047, BD-048)
-Cart/                                (BD-017…021, BD-049…051)
-   └─ Quantity & Removal/            (BD-022…026, BD-052…054) ← nested
-Checkout/                            (BD-027…031, BD-055, BD-056)
-   └─ Order Placement/               (BD-032…036, BD-057…059) ← nested
+Menu/                                (BD-012…016, BD-058, BD-059)
+Cart/                                (BD-017…021, BD-060…062)
+   └─ Quantity & Removal/            (BD-022…026, BD-063…065) ← nested
+Checkout/                            (BD-027…031, BD-066, BD-067)
+   └─ Order Placement/               (BD-032…036, BD-068…070) ← nested
 About & Content/                     (BD-037…041)
-Persistence/                         (BD-042…045, BD-060)
+Persistence/                         (BD-042…045, BD-071)
 ```
 
 Navigation & Layout, Cart, and Checkout are **parent folders that hold their own cases and have
@@ -326,14 +326,14 @@ Method).
   | 3   | Open the **menu** section                                             | Navbar and footer remain present                                  |
   | 4   | Add any item to the cart, open the cart modal, and click **Checkout** | The Checkout page loads with the navbar and footer present        |
 
-#### BD-046 · Navbar links navigate to the correct routes _(manual reproduction of automated BD-046)_
+#### BD-057 · Navbar links navigate to the correct routes _(manual reproduction of automated BD-057)_
 
 - **Folder:** `Navigation & Layout`
 - **Requirement:** [NAV: Navbar links route correctly](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#nav-navbar-links-route-correctly)
 - **Tags:** `navigation`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/navigation.spec.ts` → `test('BD-046: Navbar links navigate to the correct routes', …)`
+- **Automated as:** `tests/navigation.spec.ts` → `test('BD-057: Navbar links navigate to the correct routes', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -537,14 +537,14 @@ Method).
   | 3   | Click the **Desserts** tab, then navigate to **About us** and back via **Welcome** | The menu shows the **Pizzas** tab active again (tab choice was not kept) |
   | 4   | After step 3, check the cart badge                                                 | The badge reads **0** — tab switching and resets never changed the cart  |
 
-#### BD-047 · Switching tabs reveals the matching category and active state _(manual reproduction of automated BD-047)_
+#### BD-058 · Switching tabs reveals the matching category and active state _(manual reproduction of automated BD-058)_
 
 - **Folder:** `Menu`
 - **Requirement:** [TABS: Tabs reveal and mark categories](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#tabs-tabs-reveal-and-mark-categories)
 - **Tags:** `menu`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/menu.spec.ts` → `test('BD-047: Switching tabs reveals the matching category and active state', …)`
+- **Automated as:** `tests/menu.spec.ts` → `test('BD-058: Switching tabs reveals the matching category and active state', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -554,14 +554,14 @@ Method).
   | 2   | Click the **Drinks** tab                    | The Drinks panel becomes visible and the Drinks tab is active; the Pizzas panel is hidden |
   | 3   | Click the **Desserts** tab                  | The Desserts panel becomes visible and the Desserts tab is active                         |
 
-#### BD-048 · Item titles and prices match the menu data per category _(manual reproduction of automated BD-048)_
+#### BD-059 · Item titles and prices match the menu data per category _(manual reproduction of automated BD-059)_
 
 - **Folder:** `Menu`
 - **Requirement:** [CARD: Menu cards show item details](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#card-menu-cards-show-item-details)
 - **Tags:** `menu`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/menu.spec.ts` → `test('BD-048: Item titles and prices match the menu data per category', …)`
+- **Automated as:** `tests/menu.spec.ts` → `test('BD-059: Item titles and prices match the menu data per category', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -663,14 +663,14 @@ Method).
   | 1   | Click the cart icon with no items added | The modal shows **"No items in your cart"** |
   | 2   | Look for a Checkout action              | **No Checkout button** is present           |
 
-#### BD-049 · Add-to-cart increments the badge by total quantity _(manual reproduction of automated BD-049)_
+#### BD-060 · Add-to-cart increments the badge by total quantity _(manual reproduction of automated BD-060)_
 
 - **Folder:** `Cart`
 - **Requirement:** [BADGE: Cart badge shows total quantity](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#badge-cart-badge-shows-total-quantity)
 - **Tags:** `cart`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/cart.spec.ts` → `test('BD-049: Add-to-cart increments the badge by total quantity', …)`
+- **Automated as:** `tests/cart.spec.ts` → `test('BD-060: Add-to-cart increments the badge by total quantity', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -679,14 +679,14 @@ Method).
   | 1   | Add **Cheese Pizza** ×1 and **Hot Pastrami** ×2 from the Pizzas tab | The cart badge reads **3** (sum of quantities) |
   | 2   | Switch to **Drinks** and add **Cappuccino** ×1                      | The cart badge reads **4**                     |
 
-#### BD-050 · Adding the same item twice yields one line with quantity 2 _(manual reproduction of automated BD-050)_
+#### BD-061 · Adding the same item twice yields one line with quantity 2 _(manual reproduction of automated BD-061)_
 
 - **Folder:** `Cart`
 - **Requirement:** [ADD: Add items to cart](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#add-add-items-to-cart)
 - **Tags:** `cart`, `automated`, `regression`
 - **Priority:** Critical
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/cart.spec.ts` → `test('BD-050: Adding the same item twice yields one line with quantity 2', …)`
+- **Automated as:** `tests/cart.spec.ts` → `test('BD-061: Adding the same item twice yields one line with quantity 2', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -695,14 +695,14 @@ Method).
   | 1   | Click **Add to cart** on **Cheese Pizza** twice, then open the cart | A single Cheese Pizza line exists with quantity **2** (not two separate lines) |
   | 2   | Read the Cheese Pizza line total                                    | Line total is `$30` (15 × 2)                                                   |
 
-#### BD-051 · Line totals and cart total compute correctly _(manual reproduction of automated BD-051)_
+#### BD-062 · Line totals and cart total compute correctly _(manual reproduction of automated BD-062)_
 
 - **Folder:** `Cart`
 - **Requirement:** [TOTAL: Totals calculate correctly](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#total-totals-calculate-correctly)
 - **Tags:** `cart`, `automated`, `regression`
 - **Priority:** Critical
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/cart.spec.ts` → `test('BD-051: Line totals and cart total compute correctly', …)`
+- **Automated as:** `tests/cart.spec.ts` → `test('BD-062: Line totals and cart total compute correctly', …)`
 - **Precondition:** SP-2 — Cart preloaded with a known order
 - **Steps:**
 
@@ -804,14 +804,14 @@ Method).
   | 1   | Click the red **X** on the Hot Pastrami line | Only that line is removed              |
   | 2   | Read the Total and badge                     | Total drops by `$50`; badge drops by 2 |
 
-#### BD-052 · Setting a quantity greater than zero updates totals _(manual reproduction of automated BD-052)_
+#### BD-063 · Setting a quantity greater than zero updates totals _(manual reproduction of automated BD-063)_
 
 - **Folder:** `Cart/Quantity & Removal`
 - **Requirement:** [QTY: Quantity edits update totals](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#qty-quantity-edits-update-totals)
 - **Tags:** `cart`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/quantity.spec.ts` → `test('BD-052: Setting a quantity greater than zero updates totals', …)`
+- **Automated as:** `tests/quantity.spec.ts` → `test('BD-063: Setting a quantity greater than zero updates totals', …)`
 - **Precondition:** SP-2 — Cart preloaded with a known order
 - **Steps:**
 
@@ -820,14 +820,14 @@ Method).
   | 1   | Open the cart and change the **Cheese Pizza** quantity to **3** | The Cheese Pizza line total becomes `$45` |
   | 2   | Read the **Total** row                                          | Total updates to **$99** (45 + 50 + 4)    |
 
-#### BD-053 · Quantity 0 / empty / non-numeric removes the item _(manual reproduction of automated BD-053)_
+#### BD-064 · Quantity 0 / empty / non-numeric removes the item _(manual reproduction of automated BD-064)_
 
 - **Folder:** `Cart/Quantity & Removal`
 - **Requirement:** [ZERO: Invalid quantities remove items](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#zero-invalid-quantities-remove-items)
 - **Tags:** `cart`, `automated`, `edge-case`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/quantity.spec.ts` → `test('BD-053: Quantity 0, empty or non-numeric removes the item', …)`
+- **Automated as:** `tests/quantity.spec.ts` → `test('BD-064: Quantity 0, empty or non-numeric removes the item', …)`
 - **Precondition:** SP-2 — Cart preloaded with a known order
 - **Steps:**
 
@@ -837,14 +837,14 @@ Method).
   | 2   | Reset to SP-2, then clear the **Hot Pastrami** quantity (empty the field) | The Hot Pastrami line is removed (empty parsed as 0)     |
   | 3   | Reset to SP-2, then type `abc` into a quantity field                      | That line is removed (non-numeric parsed as 0)           |
 
-#### BD-054 · The remove (X) button deletes the line _(manual reproduction of automated BD-054)_
+#### BD-065 · The remove (X) button deletes the line _(manual reproduction of automated BD-065)_
 
 - **Folder:** `Cart/Quantity & Removal`
 - **Requirement:** [REMOVE: Remove button deletes a line](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#remove-remove-button-deletes-a-line)
 - **Tags:** `cart`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/quantity.spec.ts` → `test('BD-054: The remove (X) button deletes the line', …)`
+- **Automated as:** `tests/quantity.spec.ts` → `test('BD-065: The remove (X) button deletes the line', …)`
 - **Precondition:** SP-2 — Cart preloaded with a known order
 - **Steps:**
 
@@ -930,14 +930,14 @@ Method).
   | 2   | Open the **Payment Method** select | It lists exactly **Cash on Delivery** and **Card Payment on Delivery**     |
   | 3   | Select each option in turn         | Either option can be selected and is shown in the closed select            |
 
-#### BD-055 · Empty-cart direct navigation to checkout redirects home _(manual reproduction of automated BD-055)_
+#### BD-066 · Empty-cart direct navigation to checkout redirects home _(manual reproduction of automated BD-066)_
 
 - **Folder:** `Checkout`
 - **Requirement:** [GUARD: Checkout requires a non-empty cart](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#guard-checkout-requires-a-non-empty-cart)
 - **Tags:** `checkout`, `automated`, `edge-case`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/checkout.spec.ts` → `test('BD-055: Empty-cart direct navigation to checkout redirects home', …)`
+- **Automated as:** `tests/checkout.spec.ts` → `test('BD-066: Empty-cart direct navigation to checkout redirects home', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Steps:**
 
@@ -945,14 +945,14 @@ Method).
   | --- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
   | 1   | With an empty cart, enter `https://hypersequent.github.io/bistro/checkout` directly in the address bar | The app redirects to the home page; the address bar ends on `/bistro/` (not `/checkout`) |
 
-#### BD-056 · Order summary matches the cart _(manual reproduction of automated BD-056)_
+#### BD-067 · Order summary matches the cart _(manual reproduction of automated BD-067)_
 
 - **Folder:** `Checkout`
 - **Requirement:** [SUMMARY: Checkout summary matches cart](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#summary-checkout-summary-matches-cart)
 - **Tags:** `checkout`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/checkout.spec.ts` → `test('BD-056: Order summary matches the cart', …)`
+- **Automated as:** `tests/checkout.spec.ts` → `test('BD-067: Order summary matches the cart', …)`
 - **Precondition:** SP-3 — On the Checkout page with a known order
 - **Steps:**
 
@@ -1058,14 +1058,14 @@ Method).
   | 1   | After the success message, note the order summary | The summary table is still visible above the confirmation |
   | 2   | Navigate back to the home page and open the cart  | The same items are still in the cart (it was not cleared) |
 
-#### BD-057 · Place an order with Cash on Delivery shows success _(manual reproduction of automated BD-057)_
+#### BD-068 · Place an order with Cash on Delivery shows success _(manual reproduction of automated BD-068)_
 
 - **Folder:** `Checkout/Order Placement`
 - **Requirement:** [ORDER: Order confirmation echoes details](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#order-order-confirmation-echoes-details)
 - **Tags:** `order`, `checkout`, `automated`, `smoke`
 - **Priority:** Critical
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/order.spec.ts` → `test('BD-057: Place an order with Cash on Delivery shows success', …)`
+- **Automated as:** `tests/order.spec.ts` → `test('BD-068: Place an order with Cash on Delivery shows success', …)`
 - **Precondition:** SP-3 — On the Checkout page with a known order
 - **Shared steps:** SS-3 — Fill the checkout form and place the order (Name `Jane Tester`, Address `12 Rue de Test, Paris`, **Cash on Delivery**)
 - **Steps (after shared steps):**
@@ -1075,14 +1075,14 @@ Method).
   | 1   | Read the confirmation heading | It reads exactly **"Your order placed successfully!"**                                                                    |
   | 2   | Read the confirmation body    | It thanks **Jane Tester**, repeats the address **12 Rue de Test, Paris**, and states **Payment method: Cash on Delivery** |
 
-#### BD-058 · Place an order with Card Payment on Delivery shows success _(manual reproduction of automated BD-058)_
+#### BD-069 · Place an order with Card Payment on Delivery shows success _(manual reproduction of automated BD-069)_
 
 - **Folder:** `Checkout/Order Placement`
 - **Requirement:** [ORDER: Order confirmation echoes details](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#order-order-confirmation-echoes-details)
 - **Tags:** `order`, `checkout`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/order.spec.ts` → `test('BD-058: Place an order with Card Payment on Delivery shows success', …)`
+- **Automated as:** `tests/order.spec.ts` → `test('BD-069: Place an order with Card Payment on Delivery shows success', …)`
 - **Precondition:** SP-3 — On the Checkout page with a known order
 - **Shared steps:** SS-3 — Fill the checkout form and place the order (**Card Payment on Delivery**)
 - **Steps (after shared steps):**
@@ -1091,14 +1091,14 @@ Method).
   | --- | --------------------- | ----------------------------------------------------------------------------------- |
   | 1   | Read the confirmation | The success message appears and states **Payment method: Card Payment on Delivery** |
 
-#### BD-059 · Cart is not cleared after placing an order _(manual reproduction of automated BD-059)_
+#### BD-070 · Cart is not cleared after placing an order _(manual reproduction of automated BD-070)_
 
 - **Folder:** `Checkout/Order Placement`
 - **Requirement:** [NOCLEAR: Order does not clear cart](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#noclear-order-does-not-clear-cart)
 - **Tags:** `order`, `checkout`, `automated`, `edge-case`
 - **Priority:** Medium
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/order.spec.ts` → `test('BD-059: Cart is not cleared after placing an order', …)`
+- **Automated as:** `tests/order.spec.ts` → `test('BD-070: Cart is not cleared after placing an order', …)`
 - **Precondition:** SP-3 — On the Checkout page with a known order
 - **Shared steps:** SS-3 — Fill the checkout form and place the order
 - **Steps (after shared steps):**
@@ -1254,14 +1254,14 @@ Method).
   | 1   | Reload the page | The cart resets to empty (badge 0); no uncaught error in the console |
   | 2   | Open the cart   | It shows **"No items in your cart"**                                 |
 
-#### BD-060 · Cart persists across a reload _(manual reproduction of automated BD-060)_
+#### BD-071 · Cart persists across a reload _(manual reproduction of automated BD-071)_
 
 - **Folder:** `Persistence`
 - **Requirement:** [PERSIST: Cart persists across sessions](https://github.com/Hypersequent/bistro/blob/main/docs/REQUIREMENTS.md#persist-cart-persists-across-sessions)
 - **Tags:** `persistence`, `automated`, `regression`
 - **Priority:** High
 - **Automation:** Automated (manual reproduction below)
-- **Automated as:** `tests/persistence.spec.ts` → `test('BD-060: Cart persists across a reload', …)`
+- **Automated as:** `tests/persistence.spec.ts` → `test('BD-071: Cart persists across a reload', …)`
 - **Precondition:** SP-1 — App open with an empty cart
 - **Shared steps:** SS-1 — Add items to the cart from the menu
 - **Steps (after shared steps):**
@@ -1276,7 +1276,7 @@ Method).
 ## 7. Coverage summary
 
 - **45 manual cases**, `BD-001…BD-045`, across the 9 folders in §3 (3 of them nested).
-- **Manual reproductions of the 15 automated cases** (`BD-046…BD-060`) also appear in §6, filed in
+- **Manual reproductions of the 15 automated cases** (`BD-057…BD-071`) also appear in §6, filed in
   their matching folders, so a QA can verify a failing automated test by hand. These keep the
   `automated` tag and `Automation = Automated`; their authoritative spec is in
   [`AUTOMATED.md`](./AUTOMATED.md).
